@@ -21,7 +21,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run script
-        run: python -c "from app import calculate_attendance; print(calculate_attendance(8, 10))"
+        run: python -c "from app import attendance_report; print(attendance_report('Ravi', 8, 10))"
 
       - name: Run tests
         run: pytest -v

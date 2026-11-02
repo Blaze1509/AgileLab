@@ -18,6 +18,13 @@ def calculate_attendance(attended, total):
     return round(attended / total * 100, 2)
 
 
+def attendance_report(name, attended, total):
+    """Return a one-line attendance report for a student."""
+    percent = calculate_attendance(attended, total)
+    status = "OK" if percent >= 75 else "LOW"
+    return f"{name}: {percent}% ({status})"
+
+
 LOGIN_PAGE = """
 <html>
 <head><title>Student Login</title></head>
@@ -47,5 +54,5 @@ def login():
 
 
 if __name__ == "__main__":
-    print("Attendance of 8 out of 10 classes:", calculate_attendance(8, 10), "%")
+    print(attendance_report("Ravi", 8, 10))
     app.run(host="0.0.0.0", port=5000)
