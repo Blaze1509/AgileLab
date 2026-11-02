@@ -2,7 +2,6 @@ name: Attendance App CI
 
 on:
   push:
-    branches: [ "feature_attendance_report" ]
 
 jobs:
   test:
