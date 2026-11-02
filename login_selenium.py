@@ -1,11 +1,11 @@
-# Run the app first:  python app.py
-# Then in another terminal:  python selenium_login_test.py
+# Start the app first:  docker run -d -p 8080:5000 attendance-app
+# Then run:             python login_selenium.py
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-URL = "http://localhost:5000"
+URL = "http://localhost:8080"
 
 
 def login(driver, username, password):
