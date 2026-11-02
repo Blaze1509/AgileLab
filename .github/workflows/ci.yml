@@ -1,0 +1,31 @@
+name: Attendance App CI
+
+on:
+  push:
+    branches: [ "feature_attendance_report" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        run: python -c "from app import calculate_attendance; print(calculate_attendance(8, 10))"
+
+      - name: Run tests
+        run: pytest -v
+
+      - name: Workflow status
+        if: always()
+        run: echo "Workflow finished with status - ${{ job.status }}"
